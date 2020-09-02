@@ -1,0 +1,111 @@
+pool:
+  vmImage: 'ubuntu-latest'
+
+resources:
+ repositories:
+   - repository: self
+   - repository: azuretemplatestesting
+     type: github
+     endpoint: AzurePipelineTemplate
+     name: mehulsharma20/azuretemplatestesting
+
+stages:
+    #Microservice-Attendance
+  - stage: Build_All_Services
+    displayName: Build-Attendance
+    jobs:
+      - job: Build_Attendance_Artifact
+        steps:
+        - template: CI_Go.yaml@azuretemplatestesting
+          parameters:
+            module_name: 'attendance'
+        - script: |
+            ls 
+            echo 'pwd command'
+            pwd
+        - task: PublishBuildArtifacts@1
+          inputs:
+            PathtoPublish: 'artifact/GoArt'
+            ArtifactName: 'Attendance_Artifact'
+            publishLocation: 'Container'
+        - script: |
+            cd artifact
+            rm -rf GoArt
+            
+
+    #Microservice-Employee
+      - job: Build_Employee_Artifact
+        steps:
+        -  template: CI_Go.yaml@azuretemplatestesting
+           parameters:
+              module_name: 'employee'
+        - script: |
+            ls 
+            echo 'pwd command'
+            pwd
+        - task: PublishBuildArtifacts@1
+          inputs:
+            PathtoPublish: 'artifact/GoArt'
+            ArtifactName: 'Employee_Artifact'
+            publishLocation: 'Container'
+        - script: |
+            cd artifact
+            rm -rf GoArt
+
+    #Microservice-Salary
+      - job: Build_Salary_Artifact
+        steps:
+        - template: CI_Go.yaml@azuretemplatestesting
+          parameters:
+             module_name: salary
+        - script: |
+            ls 
+            echo 'pwd command'
+            pwd
+        - task: PublishBuildArtifacts@1
+          inputs:
+            PathtoPublish: 'artifact/GoArt'
+            ArtifactName: 'Salary_Artifact'
+            publishLocation: 'Container'
+        - script: |
+            cd artifact
+            rm -rf GoArt
+
+    #Microservice-Gateway
+      - job: Build_Gateway_Artifact
+        steps:
+        - template: CI_Maven.yaml@azuretemplatestesting
+          parameters:
+            module_name: gateway
+        - script: |
+            ls 
+            echo 'pwd command'
+            pwd
+        - task: PublishBuildArtifacts@1
+          inputs:
+            PathtoPublish: 'gateway/target/gateway-service.jar'
+            ArtifactName: 'Gateway_Artifact'
+            publishLocation: 'Container'
+        - script: |
+            cd artifact
+            rm -rf GoArt
+
+    # Microservice-FrontEnd
+      - job: Build_Frontend_Artifact
+        steps:
+        - template: CI_React.yaml@azuretemplatestesting
+          parameters:
+            module_name: frontend
+        - script: |
+            ls 
+            echo 'pwd command'
+            pwd
+        - task: PublishBuildArtifacts@1
+          inputs:
+            PathtoPublish: 'frontend/build'
+            ArtifactName: 'Frontend_Artifact'
+            publishLocation: 'Container'
+        - script: |
+            cd artifact
+            rm -rf GoArt
+    

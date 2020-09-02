@@ -1,0 +1,21 @@
+{"level":"info","msg":"Running employee-salary in webserver mode","time":"2020-08-09T17:36:54Z"}
+{"level":"info","msg":"employee-salary is listening on port: 8082","time":"2020-08-09T17:36:54Z"}
+{"level":"info","msg":"Endpoint is available now - http://0.0.0.0:8082/create","time":"2020-08-09T17:36:54Z"}
+[GIN-debug] [WARNING] Creating an Engine instance with the Logger and Recovery middleware already attached.
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] POST   /salary/configure/liveness --> main.configureLiveness (4 handlers)
+[GIN-debug] GET    /salary/search            --> main.fetchEmployeeSalary (4 handlers)
+[GIN-debug] GET    /salary/healthz           --> main.healthCheck (4 handlers)
+[GIN-debug] Listening and serving HTTP on :8082
+{"level":"info","msg":"Response is slow by: 1 seconds","time":"2020-08-09T17:39:20Z"}
+[GIN] 2020/08/09 - 17:39:21 | 200 |  1.090810978s |    47.31.26.186 | GET      "/salary/healthz"
+[GIN] 2020/08/09 - 17:39:21 | 404 |         1.7µs |    47.31.26.186 | GET      "/favicon.ico"
+{"level":"info","msg":"Response is slow by: 1 seconds","time":"2020-08-09T17:59:54Z"}
+[GIN] 2020/08/09 - 17:59:55 | 200 |  1.082386023s |    47.31.26.186 | GET      "/salary/healthz"
+{"level":"info","msg":"Response is slow by: 1 seconds","time":"2020-08-09T18:47:18Z"}
+[GIN] 2020/08/09 - 18:47:19 | 200 |  1.084398416s |  103.133.57.114 | GET      "/salary/healthz"
+[GIN] 2020/08/09 - 18:47:24 | 404 |         1.3µs |       127.0.0.1 | GET      "/salary/"

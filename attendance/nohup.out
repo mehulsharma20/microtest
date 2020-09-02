@@ -1,0 +1,40 @@
+{"level":"error","msg":"Unable to parse configuration file for attendance: open : no such file or directory","time":"2020-08-09T16:55:18Z"}
+{"level":"info","msg":"Running employee-attendance in webserver mode","time":"2020-08-09T16:55:18Z"}
+{"level":"info","msg":"employee-attendance api is listening on port: ","time":"2020-08-09T16:55:18Z"}
+{"level":"info","msg":"Endpoint is available now - http://0.0.0.0:/create","time":"2020-08-09T16:55:18Z"}
+[GIN-debug] [WARNING] Creating an Engine instance with the Logger and Recovery middleware already attached.
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] POST   /attendance/create        --> main.pushAttendanceData (4 handlers)
+[GIN-debug] GET    /attendance/search        --> main.fetchAttendanceData (4 handlers)
+[GIN-debug] GET    /attendance/healthz       --> main.healthCheckMySQL (4 handlers)
+[GIN-debug] Listening and serving HTTP on :
+{"level":"info","msg":"Running employee-attendance in webserver mode","time":"2020-08-09T17:33:44Z"}
+{"level":"info","msg":"employee-attendance api is listening on port: 8081","time":"2020-08-09T17:33:44Z"}
+{"level":"info","msg":"Endpoint is available now - http://0.0.0.0:8081/create","time":"2020-08-09T17:33:44Z"}
+[GIN-debug] [WARNING] Creating an Engine instance with the Logger and Recovery middleware already attached.
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] POST   /attendance/create        --> main.pushAttendanceData (4 handlers)
+[GIN-debug] GET    /attendance/search        --> main.fetchAttendanceData (4 handlers)
+[GIN-debug] GET    /attendance/healthz       --> main.healthCheckMySQL (4 handlers)
+[GIN-debug] Listening and serving HTTP on :8081
+[GIN] 2020/08/09 - 17:37:40 | 404 |         1.6µs |    47.31.26.186 | GET      "/healthz"
+[GIN] 2020/08/09 - 17:37:41 | 404 |         1.5µs |    47.31.26.186 | GET      "/favicon.ico"
+[GIN] 2020/08/09 - 17:38:04 | 200 |    1.674109ms |    47.31.26.186 | GET      "/attendance/healthz"
+[GIN] 2020/08/09 - 17:38:35 | 404 |         1.7µs |    47.31.26.186 | GET      "/"
+[GIN] 2020/08/09 - 18:00:58 | 200 |    1.328014ms |    47.31.26.186 | GET      "/attendance/healthz"
+[GIN] 2020/08/09 - 18:01:10 | 404 |         1.6µs |    47.31.26.186 | GET      "/attendance/create"
+{"level":"info","msg":"Successfully pushed employee's attendance information","time":"2020-08-09T18:26:09Z"}
+[GIN] 2020/08/09 - 18:26:09 | 200 |   43.253412ms |       127.0.0.1 | POST     "/attendance/create"
+[GIN] 2020/08/09 - 18:26:14 | 200 |    1.231809ms |       127.0.0.1 | GET      "/attendance/search"
+[GIN] 2020/08/09 - 18:26:31 | 200 |    1.755912ms |       127.0.0.1 | GET      "/attendance/search"
+[GIN] 2020/08/09 - 18:28:44 | 200 |    1.252009ms |       127.0.0.1 | GET      "/attendance/search"
+[GIN] 2020/08/09 - 18:28:59 | 200 |     1.35121ms |       127.0.0.1 | GET      "/attendance/search"
+[GIN] 2020/08/09 - 18:43:41 | 200 |    2.019916ms |       127.0.0.1 | GET      "/attendance/search"

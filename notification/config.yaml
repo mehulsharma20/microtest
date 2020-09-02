@@ -1,0 +1,13 @@
+---
+smtp:
+  from: "mr.mohitkanojia@gmail.com"
+  username: "mr.mohitkanojia"
+  password: "execution"
+  smtp_server: "smtp.gmail.com"
+  smtp_port: "587"
+
+elasticsearch:
+  username: "elastic"
+  password: "elastic"
+  host: "localhost"
+  port: 9200
